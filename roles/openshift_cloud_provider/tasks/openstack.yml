@@ -1,7 +1,8 @@
 ---
 - name: Copy cloud CA certificate
   copy:
-    content: "{{ openshift_cloudprovider_openstack_ca_file }}"
+    content: "{{ lookup('file', openshift_cloudprovider_openstack_ca_file) }}"
+#    content: "{{ openshift_cloudprovider_openstack_ca_file }}"
     dest: "{{ openshift_openstack_ca_file_path }}"
   when: openshift_cloudprovider_openstack_ca_file is defined
 
